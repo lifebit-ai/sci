@@ -1,0 +1,14 @@
+name: sci
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+  - anaconda
+dependencies:
+  - python=2.7
+  - scikit-learn>=0.18
+  - numpy
+  - tqdm
+  # for juicer tool
+  - coreutils
+  - bwa

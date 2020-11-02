@@ -1,7 +1,7 @@
 import sys
 import argparse
-from .hic import HicData
-from .Compartments import Compartments
+from hic import HicData
+from Compartments import Compartments
 
 
 def run_sci():
