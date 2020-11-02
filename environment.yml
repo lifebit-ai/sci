@@ -13,3 +13,4 @@ dependencies:
   # for juicer tool
   - coreutils
   - bwa
+  - openjdk

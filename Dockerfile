@@ -11,15 +11,23 @@ RUN apt-get update && \
   conda env create -f /environment.yml && \
   conda clean -a
 ENV PATH /opt/conda/envs/sci/bin:$PATH
-#RUN ln -sf /opt/conda/envs/sci/bin/python3.9 /opt/conda/bin/python
 
+# install juicer
+RUN git clone https://github.com/theaidenlab/juicer.git && \
+  cd juicer/ && \
+  ln -s CPU scripts && \
+  cd scripts/common && \
+  wget https://hicfiles.tc4ga.com/public/juicer/juicer_tools.1.9.9_jcuda.0.8.jar && \
+  ln -s juicer_tools.1.9.9_jcuda.0.8.jar juicer_tools.jar
+
+ENV JUICERTOOLS /juicer/scripts/common/juicer_tools.jar
+
+# additional scripts
 COPY scripts /scripts
-COPY sci /sci
 RUN chmod +x /scripts*
-
-ENV PATH /sci:$PATH
 ENV PATH /scripts:$PATH
 
-WORKDIR /sci
+COPY sci /sci
+ENV PATH /sci:$PATH
 
-ENTRYPOINT ["/opt/conda/envs/sci/bin/python2.7", "-m", "sci"]
+WORKDIR /sci
