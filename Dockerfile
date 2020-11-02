@@ -22,4 +22,4 @@ ENV PATH /scripts:$PATH
 
 WORKDIR /sci
 
-ENTRYPOINT ["python3", "-m", "sci.sci"]
+ENTRYPOINT ["/opt/conda/envs/sci/bin/python2.7", "-m", "sci"]

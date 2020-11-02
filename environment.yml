@@ -9,6 +9,7 @@ dependencies:
   - scikit-learn>=0.18
   - numpy
   - tqdm
+  - iced
   # for juicer tool
   - coreutils
   - bwa
